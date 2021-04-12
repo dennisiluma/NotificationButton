@@ -44,6 +44,15 @@ class MainActivity : AppCompatActivity() {
         btnShowNotification.setOnClickListener {
             notificationManager.notify(NOTIFICATION_ID,notification)
         }
+
+        /*Move to Secondary Activity and send extra*/
+        val nextActivity = findViewById<Button>(R.id.nextActivity)
+        nextActivity.setOnClickListener {
+            val intent = Intent(this, Activity2::class.java).apply {
+                putExtra("INACTIVE", "INACTIVE")
+            }
+            startActivity(intent)
+        }
     }
 
     private fun createNotificationChannel(){
